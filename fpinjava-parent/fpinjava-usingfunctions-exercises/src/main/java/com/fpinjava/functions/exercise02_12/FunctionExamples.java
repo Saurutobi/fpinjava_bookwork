@@ -8,12 +8,26 @@ public class FunctionExamples {
 
   public static final Function<Integer, Integer> factorial0 = x -> x==0 ? 1 : x * FunctionExamples.factorial0.apply(x - 1);
 
-  public static Function<Integer, Integer> factorial1;
-  static {
-    factorial1 = x -> x==0 ? 1 : x * factorial1.apply(x - 1);
+  public int recurse (Integer x){
+    if(x ==0) {
+      return 1;
+    }
+    else{
+      return x * recurse(x-1);
+    }
   }
 
   public final Function<Integer, Integer> factorial2 = x -> x==0 ? 1 : x * this.factorial2.apply(x - 1);
+
+
+
+
+
+
+  public static Function<Integer, Integer> factorial1;
+  static {
+    factorial1 = x -> x == 0 ? 1 : x * factorial1.apply(x - 1);
+  }
 
   public Function<Integer, Integer> factorial3;
   {

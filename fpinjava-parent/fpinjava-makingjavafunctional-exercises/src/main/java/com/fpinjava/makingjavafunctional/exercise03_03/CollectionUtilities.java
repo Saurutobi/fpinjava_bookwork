@@ -1,23 +1,26 @@
 package com.fpinjava.makingjavafunctional.exercise03_03;
 
+import static java.util.Collections.emptyList;
+
+import java.util.Collections;
 import java.util.List;
 
 
 public class CollectionUtilities {
 
   public static <T> List<T > list() {
-    throw new RuntimeException("To be implemented");
+    return emptyList();
   }
 
   public static <T> List<T > list(T t) {
-    throw new RuntimeException("To be implemented");
+    return Collections.singletonList(t);
   }
   public static <T> List<T > list(List<T> ts) {
-    throw new RuntimeException("To be implemented");
+    return List.copyOf(ts);
   }
 
   @SafeVarargs
   public static <T> List<T > list(T... t) {
-    throw new RuntimeException("To be implemented");
+    return List.of(t);
   }
 }

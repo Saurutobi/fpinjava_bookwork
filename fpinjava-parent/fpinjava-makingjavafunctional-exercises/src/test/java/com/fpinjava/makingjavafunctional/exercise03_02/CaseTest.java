@@ -12,10 +12,11 @@ import static com.fpinjava.makingjavafunctional.exercise03_01.Result.success;
 import static com.fpinjava.makingjavafunctional.listing03_08.Case.match;
 import static com.fpinjava.makingjavafunctional.listing03_08.Case.mcase;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class CaseTest {
 
-    /* Uncomment this these test once the exercise is solved
     @Test
     public void testMcaseSupplierOfBooleanSupplierOfResultOfT() {
       Case<Integer> c1 = Case.mcase(() -> true, () -> Result.success(4));
@@ -41,7 +42,6 @@ public class CaseTest {
       c1._2.get().bind(x -> success1.value = x, y -> failure1.value = y);
       assertEquals(Integer.valueOf(4), success1.value);
     }
-  //*/
     @Test
     public void testMatch() {
         Pattern emailPattern = Pattern.compile("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$");
