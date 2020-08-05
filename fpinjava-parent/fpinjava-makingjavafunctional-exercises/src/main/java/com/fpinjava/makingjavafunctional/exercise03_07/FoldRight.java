@@ -19,13 +19,16 @@ public class FoldRight {
     }
     return list.get(0);
   }
+
   public static <T, U> U foldRight(List<T> ts,
                                    U identity,
                                    Function<T, Function<U, U>> f) {
+
     U result = identity;
-    for (int i = ts.size(); i > 0; i--) {
-      result = f.apply(ts.get(i - 1)).apply(result);
+    for (int i= ts.size()-1; i >=0; i--) {
+      result = f.apply(ts.get(i)).apply(result);
     }
     return result;
   }
+
 }

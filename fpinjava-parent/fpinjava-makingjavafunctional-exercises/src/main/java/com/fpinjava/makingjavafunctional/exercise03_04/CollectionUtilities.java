@@ -34,6 +34,6 @@ public class CollectionUtilities {
   }
 
   public static <T> List<T> tail(List<T> list) {
-    return copy(list.subList(1, (int)list.stream().count()));
+    return copy(list.subList(1, list.size()));
   }
 }

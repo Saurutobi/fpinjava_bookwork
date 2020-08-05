@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class CollectionUtilities {
+public class ReverseList {
 
   public static <T> List<T > list() {
     return Collections.emptyList();
@@ -56,12 +56,6 @@ public class CollectionUtilities {
     return result;
   }
 
-  public static <T, U> U foldRight(List<T> ts, U identity,
-                                   Function<T, Function<U, U>> f) {
-    return ts.isEmpty()
-        ? identity
-        : f.apply(head(ts)).apply(foldRight(tail(ts), identity, f));
-  }
 
   public static <T> List<T> append(List<T> list, T t) {
     List<T> ts = copy(list);
@@ -70,10 +64,32 @@ public class CollectionUtilities {
   }
 
   public static <T> List<T> prepend(T t, List<T> list) {
-    throw new RuntimeException("To be implemented");
+      List<T> theList = new ArrayList<>();
+      theList.add(t);
+      theList.addAll(list);
+      return Collections.unmodifiableList(theList);
   }
 
-  public static <T> List<T> reverse(List<T> list) {
+  public static <T, U> List<T> reverse(List<T> list) {
+    //((((0+1)+2)+3)+4)+5)
+    //12345
+    //prepend(0, null)
+    //prepend(1, (0,null)
+    //prepend(2, (1,0,null)
+    //prepend(3, (2,1,0,null)
+    //prepend(4, (3,2,1,0,null)
+    //prepend(5, (4,3,2,1,0,null)
+    //543210
+    Function<T, Function<List<T>, List<T>>> f = x -> y -> prepend(x,y);
+
+    List<T> newlist = foldLeft(list, list.get(0), f );
+
+
+
+
+    //returns tsil;
+
+
     throw new RuntimeException("To be implemented");
   }
 }
