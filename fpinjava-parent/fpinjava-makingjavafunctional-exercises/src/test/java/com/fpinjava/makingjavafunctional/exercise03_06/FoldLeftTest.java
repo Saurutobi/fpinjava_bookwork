@@ -1,7 +1,7 @@
 package com.fpinjava.makingjavafunctional.exercise03_06;
 
 import static org.junit.Assert.*;
-import static com.fpinjava.makingjavafunctional.exercise03_06.CollectionUtilities.*;
+import static com.fpinjava.makingjavafunctional.exercise03_06.FoldLeft.*;
 
 import java.util.List;
 
@@ -9,8 +9,7 @@ import org.junit.Test;
 
 import com.fpinjava.common.Function;
 
-public class CollectionUtilitiesTest {
-
+public class FoldLeftTest {
   private static String addSI(String s, Integer i) {
     return "(" + s + " + " + i + ")";
   }

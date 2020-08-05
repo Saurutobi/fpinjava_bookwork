@@ -1,7 +1,7 @@
-package com.fpinjava.makingjavafunctional.exercise03_07;
+package com.fpinjava.makingjavafunctional.exercise03_08;
 
 import static org.junit.Assert.*;
-import static com.fpinjava.makingjavafunctional.exercise03_07.CollectionUtilities.*;
+import static com.fpinjava.makingjavafunctional.exercise03_08.RecursiveFoldRight.*;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import com.fpinjava.common.Function;
 
-public class CollectionUtilitiesTest {
+public class RecursiveFoldRightTest {
 
   private static String addIS(Integer i, String s) {
     return "(" + i + " + " + s + ")";

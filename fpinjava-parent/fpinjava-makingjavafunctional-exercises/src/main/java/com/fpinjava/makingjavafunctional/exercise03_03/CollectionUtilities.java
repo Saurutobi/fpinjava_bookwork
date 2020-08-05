@@ -2,9 +2,9 @@ package com.fpinjava.makingjavafunctional.exercise03_03;
 
 import static java.util.Collections.emptyList;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 
 public class CollectionUtilities {
 
@@ -16,11 +16,11 @@ public class CollectionUtilities {
     return Collections.singletonList(t);
   }
   public static <T> List<T > list(List<T> ts) {
-    return List.copyOf(ts);
+    return null; //return List.copyOf(ts);
   }
 
   @SafeVarargs
   public static <T> List<T > list(T... t) {
-    return List.of(t);
+    return null; //return List.of(t);
   }
 }
