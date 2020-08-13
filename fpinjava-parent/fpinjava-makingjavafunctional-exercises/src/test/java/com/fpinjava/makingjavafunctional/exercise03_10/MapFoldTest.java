@@ -1,11 +1,11 @@
 package com.fpinjava.makingjavafunctional.exercise03_10;
 
 import static org.junit.Assert.*;
-import static com.fpinjava.makingjavafunctional.exercise03_10.CollectionUtilities.*;
+import static com.fpinjava.makingjavafunctional.exercise03_10.MapFold.*;
 
 import org.junit.Test;
 
-public class CollectionUtilitiesTest {
+public class MapFoldTest {
 
   @Test
   public void testMapViaFoldLeft() {

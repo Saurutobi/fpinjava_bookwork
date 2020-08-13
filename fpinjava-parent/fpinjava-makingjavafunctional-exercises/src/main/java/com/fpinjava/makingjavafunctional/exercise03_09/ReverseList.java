@@ -64,10 +64,7 @@ public class ReverseList {
   }
 
   public static <T> List<T> prepend(T t, List<T> list) {
-      List<T> theList = new ArrayList<>();
-      theList.add(t);
-      theList.addAll(list);
-      return Collections.unmodifiableList(theList);
+      return foldLeft(list, list(t), x->y->append(x,y));
   }
 
   public static <T, U> List<T> reverse(List<T> list) {
@@ -80,16 +77,11 @@ public class ReverseList {
     //prepend(4, (3,2,1,0,null)
     //prepend(5, (4,3,2,1,0,null)
     //543210
-    Function<T, Function<List<T>, List<T>>> f = x -> y -> prepend(x,y);
+    return foldLeft(list, list(), x -> y -> prepend(y, x));
+  }
 
-    List<T> newlist = foldLeft(list, list.get(0), f );
+  public static <T, U> List<T> reverse2Append(List<T> list) {
 
-
-
-
-    //returns tsil;
-
-
-    throw new RuntimeException("To be implemented");
+    return foldLeft(list, list(), x -> y -> prepend(y, x));
   }
 }
