@@ -46,9 +46,7 @@ public class MapFold {
     return Collections.unmodifiableList(workList);
   }
 
-  public static <T, U> U foldLeft(List<T> ts,
-                                  U identity,
-                                  Function<U, Function<T, U>> f) {
+  public static <T, U> U foldLeft(List<T> ts, U identity, Function<U, Function<T, U>> f) {
     U result = identity;
     for (T t : ts) {
       result = f.apply(result).apply(t);
@@ -56,8 +54,7 @@ public class MapFold {
     return result;
   }
 
-  public static <T, U> U foldRight(List<T> ts, U identity,
-                                   Function<T, Function<U, U>> f) {
+  public static <T, U> U foldRight(List<T> ts, U identity, Function<T, Function<U, U>> f) {
     return ts.isEmpty()
         ? identity
         : f.apply(head(ts)).apply(foldRight(tail(ts), identity, f));
@@ -82,10 +79,19 @@ public class MapFold {
   }
 
   public static <T, U> List<U> mapViaFoldLeft(List<T> list, Function<T, U> f) {
-    throw new RuntimeException("To be implemented");
+    //foreach list T, apply F, append result to list and return new list
+
+    //    List<U> newlist = list();
+//    for (T t : list)
+//    {
+//      append(newlist, f.apply(t));
+//    }
+//    return newlist;
+
+
+    return foldLeft(list, list(), x -> y -> append(x, f.apply(y)));
   }
 
   public static <T, U> List<U> mapViaFoldRight(List<T> list, Function<T, U> f) {
-    throw new RuntimeException("To be implemented");
-  }
+    return foldRight(list, list(), x -> y -> prepend(f.apply(x), y));}
 }

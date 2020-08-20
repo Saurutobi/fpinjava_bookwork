@@ -81,7 +81,6 @@ public class ReverseList {
   }
 
   public static <T, U> List<T> reverse2Append(List<T> list) {
-
-    return foldLeft(list, list(), x -> y -> prepend(y, x));
+    return foldLeft(list, list(), x -> y -> foldLeft(x, list(y), a -> b -> append(a,b)));
   }
 }
