@@ -70,14 +70,6 @@ public class MapFold {
     return foldLeft(list, list(t), a -> b -> append(a, b));
   }
 
-  public static <T> List<T> reverse(List<T> list) {
-    return foldLeft(list, list(), x -> y -> prepend(y, x));
-  }
-
-  public static <T> List<T> reverse2(List<T> list) {
-    return foldLeft(list, list(), x -> y -> foldLeft(x, list(y), a -> b -> append(a, b)));
-  }
-
   public static <T, U> List<U> mapViaFoldLeft(List<T> list, Function<T, U> f) {
     //foreach list T, apply F, append result to list and return new list
 

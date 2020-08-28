@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class UnfoldTest {
-
   @Test
   public void testUnfold() {
     assertEquals("[1, 2, 4, 8]", Unfold.unfold(1, x -> x * 2, x -> x < 10).toString());

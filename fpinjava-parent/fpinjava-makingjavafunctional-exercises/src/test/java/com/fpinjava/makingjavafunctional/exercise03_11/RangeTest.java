@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class RangeTest {
-
   @Test
   public void testRange() {
     assertEquals("[]", Range.range(0, 0).toString());
