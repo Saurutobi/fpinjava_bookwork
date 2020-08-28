@@ -1,4 +1,4 @@
-package com.fpinjava.makingjavafunctional.exercise03_12;
+package com.fpinjava.makingjavafunctional.exercise03_13;
 
 import com.fpinjava.common.Function;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Unfold {
+public class RangeUnfold {
     private static <T> List<T> copy(List<T> ts) {
         return new ArrayList<>(ts);
     }
@@ -23,9 +23,13 @@ public class Unfold {
         List<T> result = new ArrayList<>();
         T temp = seed;
         while (p.apply(temp)) {
-            result = Unfold.append(result, temp);
+            result = append(result, temp);
             temp = f.apply(temp);
         }
         return result;
+    }
+
+    public static List<Integer> range(int start, int end) {
+        return unfold(start, x -> x + 1, x -> x < end);
     }
 }
